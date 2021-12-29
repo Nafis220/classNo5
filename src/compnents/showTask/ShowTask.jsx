@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function ShowTask({tasks}) {
-    console.log(tasks)
+function ShowTask({tasks,taskCompleted}) {
+    
+    
     return (
         <div>
             {tasks.length > 0 ? (<ul>
                 {
-                    tasks.map((task) => <li id ={task.id}>{task.text}</li> )
+                    tasks.map((task) => <li> <input onClick={() =>{taskCompleted(task)} } type="radio"/> <label  htmlFor="Task">{task.text}</label> </li>)
                 }
 
-            </ul>) : ( <p>No tasks found</p> )}
+                </ul>) : ( <p>No tasks found</p> )}
         </div>
     );
 }
